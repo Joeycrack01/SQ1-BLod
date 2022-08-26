@@ -1,0 +1,158 @@
+﻿@model HomePageModel
+@*@{
+    ViewData["Title"] = "Home Page";
+}*@
+
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- row -->
+                <div class="row">
+
+                    <form method="post" asp-controller="Home" asp-action="Index" asp-route-id="@Model.AllArticles.Count"role="form">
+                        @foreach (var article in Model.AllArticles)
+                        {
+                            <div class="col-md-6">
+                                <div class="post">
+                                    <a class="post-img" asp-controller="SinglePost" asp-action="SinglePost" asp-route-id="@article.Id"><img src="@Url.Content("~/img/post-11.jpg")" alt=""></a>
+                                    <div class="post-body">
+                                        <h3 class="post-title"><a asp-controller="SinglePost" asp-action="SinglePost" asp-route-id="@article.Id">@Html.DisplayFor(_ => article.Title)</a></h3>
+                                        <ul class="post-meta">
+                                            <li><a asp-controller="SinglePost" asp-action="SinglePost" asp-route-id="@article.Id">@Html.DisplayFor(_ => article.Description)</a></li>
+                                            <li>@Html.DisplayFor(_ => article.PublicationDate)</li>
+                                            <li>@Html.DisplayFor(_ => article.Author)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                        <div class="section-row loadmore text-center">
+                            <button type="submit" class="primary-button">Load More</button>
+                        </div>
+                    </form>
+
+                    
+
+                    <!-- /post -->
+                    @*<div class="clearfix visible-md visible-lg"></div>*@
+
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <!-- /ad widget -->
+                <!-- social widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Social Media</h2>
+                    </div>
+                    <div class="social-widget">
+                        <ul>
+                            <li>
+                                <a href="#" class="social-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                    <span>21.2K<br>Followers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <span>10.2K<br>Followers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                    <span>5K<br>Followers</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /social widget -->
+                <!-- category widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Sort Articles</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="Index" asp-route-period="Today">Today</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-route-period="Yesterday">Yesterday</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-route-period="Last Week">Last Week</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-route-period="This Week">This Week</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-route-period="This Month">This Month</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Newsletter</h2>
+                    </div>
+                    <div class="newsletter-widget">
+                        <form method="post">
+                            <p>Subscribe to our mail list to stay updated with latest and interesting articles.</p>
+                            <input class="input" type="email" name="Email" placeholder="Enter Your Email">
+                            <button class="primary-button" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /newsletter widget -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+               
+                @*<div class="section-row loadmore text-center">
+                    <form method="post" asp-controller="Home" asp-action="LoadMore" role="form">
+
+                        <button type="submit" class="primary-button">Load More</button>
+
+                    </form>
+                    <a asp-controller="Home" asp-action="LoadMore" class="primary-button">Load More</a>
+                </div>*@
+
+            </div>
+            <div class="col-md-4">
+                <!-- galery widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Instagram</h2>
+                    </div>
+                    <div class="galery-widget">
+                        <ul>
+                            <li><a href="#"><img src="~/img/galery-1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/img/galery-2.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/img/galery-3.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/img/galery-4.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/img/galery-5.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/img/galery-6.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /galery widget -->
+            </div>
+        </div>
+        <!-- /row -->
+        
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "SinglePost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-8">
+                            <h3 class="post-title title-lg"><a href="#">@ViewBag.Model.Title</a></h3>
+                            <ul class="post-meta">
+                                <li><a href="#">@ViewBag.Model.Author</a></li>
+                                <li>@ViewBag.Model.PublicationDate</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- post share -->
+                    <div class="section-row">
+                        <div class="post-share">
+                            <a href="#" class="social-facebook"><i class="fa fa-facebook"></i><span>Share</span></a>
+                            <a href="#" class="social-twitter"><i class="fa fa-twitter"></i><span>Tweet</span></a>
+                            <a href="#" class="social-pinterest"><i class="fa fa-pinterest"></i><span>Pin</span></a>
+                            <a href="#"><i class="fa fa-envelope"></i><span>Email</span></a>
+                        </div>
+                    </div>
+                    <!-- /post share -->
+                    <!-- post content -->
+                    <div class="section-row">
+                        @Html.Raw(ViewBag.Model.ArticleContent)
+                    </div>
+                    <!-- /post content -->
+
+
+
+                </div>
+            </div>
+
+
+

@@ -1,0 +1,59 @@
+﻿@model SQ1Blog.Models.AddArticlePageModel
+@{
+    ViewData["Title"] = "AddArticle";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add New Post</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                DataTables Advanced Tables
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form method="post" asp-controller="Article" asp-action="AddArticlePost" enctype="multipart/form-data">
+                    <div class="form-group row col-lg-8">
+                        <label class="col-md-4 col-form-label" asp-for="Title">Article Title:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" asp-for="Title" type="text" placeholder="Enter title" required />
+                            <span asp-validation-for="Title" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group row col-lg-8">
+                        <label class="col-md-4 col-form-label" asp-for="Description">Description:</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control" asp-for="Description" type="text" placeholder="Enter description" required></textarea>
+                            <span asp-validation-for="Description" class="text-danger" />
+                        </div>
+                    </div>
+
+
+                    @*<div class="form-group row col-lg-12">
+                        <label class="col-md-4 col-form-label" asp-for="ArticleContent">Article Content:</label>
+                        <div class="col-md-11">
+                            <textarea class="form-control" id="summernote" asp-for="ArticleContent" type="text" placeholder="Enter Article Content" required></textarea>
+                            <span asp-validation-for="ArticleContent" class="text-danger" />
+                        </div>
+                    </div>*@
+                    <div class="row">
+                        <div class="col-md-7">
+                            <button class="btn btn-primary" type="submit" style="width:80px;">Save</button>&nbsp;
+                            <a class="btn btn-danger btn-outline" style="width:80px" asp-controller="Article" asp-action="ArticleList">Back</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

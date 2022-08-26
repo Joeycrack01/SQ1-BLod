@@ -1,0 +1,58 @@
+﻿@page
+@model LoginPageModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+@*<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" />*@
+<link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+@*<link href="~/dist/css/sb-admin-2.min.css" rel="stylesheet" />*@
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" role="form">
+                        <div class="form-group">
+                            <input asp-for="UserName" class="form-control" placeholder="Enter User name" name="UserName" type="text" autofocus>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Password" class="form-control" placeholder="Password" name="password" type="password" value="">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" type="checkbox" value="Remember Me" />Remember Me
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-lg primary-button btn-block">Login</button>
+                        <br />
+                        <br />
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user?</a>
+                            <a asp-page="./ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl">Forgot password?</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+@*<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/vendor/metisMenu/metisMenu.min.js"></script>
+<script src="~/Pages/Account/Admin/dist/js/sb-admin-2.js"></script>
+<script src="~/dist/js/sb-admin-2.js"></script>*@
